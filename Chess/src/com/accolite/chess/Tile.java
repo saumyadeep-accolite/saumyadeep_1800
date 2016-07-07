@@ -4,7 +4,7 @@ public class Tile {
 
 	private Position position;
 	private Color color;
-	private Piece piece;
+	private Piece piece = null;
 	
 	public Tile(Position position, Color color) {
 		super();
