@@ -35,8 +35,14 @@ public abstract class Piece {
 	public void setPieceStatus(PieceStatus pieceStatus) {
 		this.pieceStatus = pieceStatus;
 	}
-	
-	
+
+	public Piece(String name, Position position, Color color, PieceStatus pieceStatus) {
+		super();
+		this.name = name;
+		this.position = position;
+		this.color = color;
+		this.pieceStatus = pieceStatus;
+	}
 	
 
 }

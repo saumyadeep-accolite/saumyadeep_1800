@@ -1,5 +1,7 @@
 package com.accolite.chess;
 
+import com.accolite.chess.pieces.King;
+
 public class Game {
 	
 	private Tile[][] board = new Tile[8][8];
@@ -18,13 +20,14 @@ public class Game {
 		for (int i = 0; i < NUM_ROWS; i++) {
 			for (int j = 0; j < NUM_COLS; j++) {
 				Position position = new Position(i,j);
-				board[i][j] = new Tile(position,((i+j)%2==0)?Color.BLACK:Color.WHITE);
+				board[i][j] = new Tile(position,((i+j)%2==0)?Color.WHITE:Color.BLACK);
 			}
 		}
 		fillBoardWithPieces();
 	}
 	
 	private void fillBoardWithPieces(){
+		
 		
 	}
 
