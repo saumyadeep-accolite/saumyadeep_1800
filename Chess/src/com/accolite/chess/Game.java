@@ -1,5 +1,8 @@
 package com.accolite.chess;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.accolite.chess.pieces.Bishop;
 import com.accolite.chess.pieces.King;
 import com.accolite.chess.pieces.Knight;
@@ -60,5 +63,28 @@ public class Game {
 		
 		
 	}
+	
+	public void makeAMove(Player player, Position initialPos, Position finalPos){
+		Piece piece = board[initialPos.getX()][initialPos.getY()].getPiece();
+		List<Position> moves = piece.moves();
+		List<Position> validMoves = new ArrayList<Position>();
+		for (Position position : moves) {
+			// TODO Check Validity of moves
+			validMoves.add(position);
+		}
+		
+		if(moves.contains(finalPos)){
+			// TODO Successful Move Also Deal with removing other Pieces
+		} else {
+			// TODO Unsuccessful Move Prompt the user for one more input
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		// initGame();
+		
+	}
+	
 
 }
