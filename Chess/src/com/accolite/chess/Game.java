@@ -44,23 +44,22 @@ public class Game {
 		board[0][6].setPiece(new Knight("Knight" ,new Position(0,6),Color.BLACK,PieceStatus.ALIVE));
 		board[0][7].setPiece(new Rook(  "Rook"   ,new Position(0,7),Color.BLACK,PieceStatus.ALIVE));
 		
-		for (int i = 0; i < 7 ; i++) {
+		for (int i = 0; i < NUM_ROWS ; i++) {
 			board[1][i].setPiece(new Pawn("Pawn" ,new Position(1,i),Color.BLACK,PieceStatus.ALIVE));
 		}
 		
 		board[7][0].setPiece(new Rook(  "Rook"   ,new Position(7,0),Color.WHITE,PieceStatus.ALIVE));
 		board[7][1].setPiece(new Knight("Knight" ,new Position(7,1),Color.WHITE,PieceStatus.ALIVE));
 		board[7][2].setPiece(new Bishop("Bishop" ,new Position(7,2),Color.WHITE,PieceStatus.ALIVE));
-		board[7][3].setPiece(new King(  "King"   ,new Position(7,3),Color.WHITE,PieceStatus.ALIVE));
-		board[7][4].setPiece(new Queen( "Queen"  ,new Position(7,4),Color.WHITE,PieceStatus.ALIVE));
+		board[7][3].setPiece(new Queen( "Queen"  ,new Position(7,3),Color.WHITE,PieceStatus.ALIVE));
+		board[7][4].setPiece(new King(  "King"   ,new Position(7,4),Color.WHITE,PieceStatus.ALIVE));
 		board[7][5].setPiece(new Bishop("Bishop" ,new Position(7,5),Color.WHITE,PieceStatus.ALIVE));
 		board[7][6].setPiece(new Knight("Knight" ,new Position(7,6),Color.WHITE,PieceStatus.ALIVE));
 		board[7][7].setPiece(new Rook(  "Rook"   ,new Position(7,7),Color.WHITE,PieceStatus.ALIVE));
 		
-		for (int i = 0; i < 7 ; i++) {
+		for (int i = 0; i < NUM_COLS ; i++) {
 			board[6][i].setPiece(new Pawn("Pawn" ,new Position(6,i),Color.WHITE,PieceStatus.ALIVE));
-		}
-		
+		}	
 		
 	}
 	
@@ -81,8 +80,26 @@ public class Game {
 		
 	}
 	
+	public void displayBoard() {
+		for (int i = 0; i < NUM_ROWS; i++) {
+			for (int j = 0; j < NUM_COLS; j++) {
+				Piece piece = board[i][j].getPiece(); 
+				if( piece != null){
+					System.out.print((piece.getColor() == Color.BLACK)? piece.getName().toLowerCase().charAt(0):piece.getName().charAt(0));
+				}
+				else
+				{
+//					System.out.print(board[i][j].getColor() == Color.BLACK?"o":"O");
+					System.out.print("o");
+				}
+			}
+			System.out.println();
+		}
+	}
 	public static void main(String[] args) {
-		// initGame();
+		 Game g = new Game();
+		 g.initGame();
+		 g.displayBoard();
 		
 	}
 	
