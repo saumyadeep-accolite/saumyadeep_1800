@@ -106,7 +106,8 @@ public class Game {
 		 g.initGame();
 		 g.displayBoard();
 		
-		 System.out.println(g.board[0][0].getPiece().moves());
+		 System.out.println(g.board[6][2].getPiece().getName() + " " + g.board[6][2].getPiece().getColor());
+		 System.out.println(g.board[6][2].getPiece().moves());
 	}
 	
 

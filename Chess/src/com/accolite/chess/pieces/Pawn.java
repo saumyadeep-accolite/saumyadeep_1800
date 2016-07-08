@@ -20,7 +20,7 @@ public class Pawn extends Piece {
 		
 		List<Position> moves = new ArrayList<Position>();
 		Position initial = getPosition();
-		if(getColor() == Color.WHITE){
+		if(getColor() == Color.BLACK){
 			moves.add(initial.changeDelta(1, 0));
 			if(initial.getX()==1)
 				moves.add(initial.changeDelta(2, 0));
@@ -29,7 +29,7 @@ public class Pawn extends Piece {
 		} else {
 			moves.add(initial.changeDelta(-1, 0));
 			if(initial.getX()==6)
-				moves.add(initial.changeDelta(-1, 0));
+				moves.add(initial.changeDelta(-2, 0));
 			if(initial.changeDelta(-1,  1) != null) moves.add(initial.changeDelta(-1,  1));
 			if(initial.changeDelta(-1, -1) != null) moves.add(initial.changeDelta(-1, -1));
 		}
