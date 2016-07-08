@@ -1,5 +1,6 @@
 package com.accolite.chess.pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.accolite.chess.Color;
@@ -16,8 +17,24 @@ public class Pawn extends Piece {
 
 	@Override
 	public List<Position> moves() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Position> moves = new ArrayList<Position>();
+		Position initial = getPosition();
+		if(getColor() == Color.WHITE){
+			moves.add(initial.changeDelta(1, 0));
+			if(initial.getX()==1)
+				moves.add(initial.changeDelta(2, 0));
+			if(initial.changeDelta(1,  1) != null) moves.add(initial.changeDelta(1,  1));
+			if(initial.changeDelta(1, -1) != null) moves.add(initial.changeDelta(1, -1));
+		} else {
+			moves.add(initial.changeDelta(-1, 0));
+			if(initial.getX()==6)
+				moves.add(initial.changeDelta(-1, 0));
+			if(initial.changeDelta(-1,  1) != null) moves.add(initial.changeDelta(-1,  1));
+			if(initial.changeDelta(-1, -1) != null) moves.add(initial.changeDelta(-1, -1));
+		}
+		
+		return moves;
 	}
 
 }

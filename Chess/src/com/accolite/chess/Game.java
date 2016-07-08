@@ -13,10 +13,14 @@ import com.accolite.chess.pieces.Rook;
 public class Game {
 	
 	private Tile[][] board = new Tile[8][8];
-	private static final int NUM_ROWS = 8;
-	private static final int NUM_COLS = 8;
+	public static final int NUM_ROWS = 8;
+	public static final int NUM_COLS = 8;
 	private Player player1;
 	private Player player2;
+	
+	private Tile getTileAtPosition(Position position){
+		return board[position.getX()][position.getY()];
+	}
 	
 	private void initGame() {
 		player1 = new Player(Color.WHITE);
@@ -69,10 +73,11 @@ public class Game {
 		List<Position> validMoves = new ArrayList<Position>();
 		for (Position position : moves) {
 			// TODO Check Validity of moves
-			validMoves.add(position);
+			if(getTileAtPosition(position).getPiece() == null)
+				validMoves.add(position);
 		}
 		
-		if(moves.contains(finalPos)){
+		if(validMoves.contains(finalPos)){
 			// TODO Successful Move Also Deal with removing other Pieces
 		} else {
 			// TODO Unsuccessful Move Prompt the user for one more input
@@ -101,6 +106,7 @@ public class Game {
 		 g.initGame();
 		 g.displayBoard();
 		
+		 System.out.println(g.board[0][0].getPiece().moves());
 	}
 	
 

@@ -27,7 +27,7 @@ public class Position {
 		return x<0 || x>=8 || y<0 || y>=8;
 	}
 	
-	public Position change(int xx, int yy){
+	public Position changeDelta(int xx, int yy){
 		Position result = new Position(this.x+xx,this.y+yy);
 		if(!result.isPositionOutOfBounds()){
 			return result;
@@ -36,5 +36,27 @@ public class Position {
 			return null;
 		}
 	}
+	@Override
+	public String toString() {
+		return "Position [x=" + x + ", y=" + y + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Position other = (Position) obj;
+		if (x != other.x)
+			return false;
+		if (y != other.y)
+			return false;
+		return true;
+	}
+	
+	
 	
 }
